@@ -1,3 +1,5 @@
+import ast
+
 user = input("Login: ")
 
 
@@ -7,10 +9,11 @@ def add_command(args):
         access_type = args[-1]
         content = ' '.join(args[1:-1])
         with open('data.py', 'a') as file:
-            file.write(f'\n{{"command": "{command}", "content": "{content}", "owner": "{user}", "access": "{access_type}"}}')
+            file.write(
+                f'\n{{"command": "{command}", "content": "{content}", "owner": "{user}", "access": "{access_type}"}}')
         print("OK")
     else:
-        print("Error")
+        print("error")
 
 
 def cat_command(args):
@@ -31,7 +34,7 @@ def cat_command(args):
                         found = True
                         break
         if not found:
-            print("Error")
+            print("error")
 
 
 def edit_command(args):
@@ -53,7 +56,19 @@ def edit_command(args):
         if found:
             print("OK")
         else:
-            print("Error")
+            print("error")
+
+
+def commands():
+    with open('data.py', 'r') as file:
+        for line in file:
+            try:
+                data = eval(line.strip())
+                if data.get("owner") == user or data.get("access") in ["u-r", "u-x"]:
+                    print(f"{data.get('command')}")
+            except Exception as e:
+                    pass
+
 
 
 while True:
@@ -68,3 +83,5 @@ while True:
             cat_command(args)
         case ["edit", "note", *args]:
             edit_command(args)
+        case["commands"]:
+            commands()
