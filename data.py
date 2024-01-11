@@ -35,3 +35,4 @@
 {"command": "wiazaniaKowJ", "content": "0-0.4 Kow nie 0.4-1.7 KOw Spol 1.7< Jon", "owner": "Davis", "access": "u-r"}
 {"command": "kropki", "content": "liczba powlok poziomo kropki poziomo (grupy)", "owner": "Davis", "access": "u-r"}
 {"command": "kation", "content": "kation + anion -", "owner": "Davis", "access": "u-r"}
+{"command": "weglowodany", "content": "Weglowodany to zwiazki organiczne zbudowane z atomow wegla, wodoru i tlenu. Wyrozniamy: cukry proste, dwu cukry,czyli cukry zlozone z dwoch cukrow prostych, wielocukry,czyli cukry zlozone z wielu cukrow prostych", "owner": "David", "access": "u-r"}
